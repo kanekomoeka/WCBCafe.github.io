@@ -1,271 +1,463 @@
+@charset "UTF-8";
+
+/* 共通部分
+------------------------------------------------------ */
 * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", "YuGothic",
+    "游ゴシック体", "ヒラギノ角ゴ Pro3 W3" sans-serif;
+  line-height: 1.7;
+  color: #432;
 }
 
-a {
-  text-decoration: none;
+img {
+  max-width: 100%;
 }
 
-.container {
-  width: 100%;
-  padding: 0 15px;
+.wrapper {
+  max-width: 1100px;
   margin: 0 auto;
+  /* ボックスを中央に配置 */
+  padding: 0 4%;
+  /* スマホの狭い画面でもみやすい */
+}
+/* HEADER-------------------------------------------------------- */
+header .logo {
+  width: 210px;
+  margin-top: 14px;
 }
 
-.top-wrapper {
-  padding: 180px 0 100px 0;
-  background-image: url(top.png);
+header .main-nav {
+  display: flex;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-top: 34px;
+  list-style: none;
+}
+
+header .main-nav li {
+  margin-left: 36px;
+}
+
+header .main-nav a {
+  color: #432;
+}
+
+header .main-nav a:hover {
+  color: #0bd;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 大きな背景画像 */ /* 他のページでも使いまわすので.homeには指定しない。 */
+.big-bg {
   background-size: cover;
-  color: white;
+  background-position: center top;
+}
+/* 画面を縦横の比率を保ったまま画面いっぱいに広げる */
+/* 画像の表示位置を横中央、縦を上方向に設定 */
+
+/* 見出し */
+.page-title {
+  font-size: 5rem;
+  font-family: "Philosopher", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+/* ボタン */
+.button {
+  font-size: 1.375rem;
+  background: #0bd;
+  color: #fff;
+  border-radius: 5px;
+  padding: 18px 32px;
+}
+.button:hover {
+  background: #0090aa;
+}
+
+/* HOME
+------------------------------------------------- */
+#home {
+  background-image: url(images/main-bg.jpg); /*  linear-gradient(#c9ffdf, #ffafbd) フィルター */
+  background-blend-mode: luminosity;
+  /* background-blend-mode: hard-light; */ /*描画モード*/
+  /* background-image: linear-gradient(#c9ffdf, #ffafbd); グラデーション直線 */
+  /* background-image: radial-gradient(#c9ffdf, #ffafbd);　グラデーション円形 */
+  min-height: 100vh;
+  /* 画面の表示領域の高さいっぱいに画像を広げる */
+}
+#home .page-title {
+  text-transform: none;
+  /* テキストの大文字、小文字、全角を変換しない */
+}
+
+.home-content {
   text-align: center;
+  margin-top: 10%;
 }
 
-.top-wrapper h1 {
-  opacity: 0.7;
-  font-size: 45px;
-  letter-spacing: 5px;
+.home-content p {
+  font-size: 1.125rem;
+  margin: 10px 0 42px;
+  /* 上　左右　下 */
 }
-
-.top-wrapper p {
-  opacity: 0.7;
-  font-size: 16px;
+/* NEWS
+------------------------------------------------------------- */
+#news {
+  background-image: url(images/news-bg.jpg);
+  height: 270px;
   margin-bottom: 40px;
 }
 
-.btn-wrapper {
+#news .page-title {
   text-align: center;
 }
 
-.btn-wrapper p {
+.news-contents {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+/* 記事部分 */
+article {
+  width: 60%;
+  order: 2;
+  /* 表示するカラムの順序を変えるプロパティ
+  *flexの指定がある子要素でしか動作しない*/
+}
+
+.post-info {
+  position: relative;
+  padding-top: 4px;
+  margin-bottom: 40px;
+}
+
+.post-date {
+  background: #0bd;
+  border-radius: 50%;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  font-size: 1.625rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding-top: 10px;
+}
+
+.post-date span {
+  font-size: 1rem;
+  border-top: 1px rgba(255, 255, 255, 0.5) solid;
+  /* 上線をborder-topで指定。半透明にしている */
+  padding-top: 6px;
+  display: block;
+  /* ブロック要素は新しい行からはじまる。インライン要素のまま
+  だと配置やサイズのコントロールが難しい */
+  width: 60%;
+  margin: 0 auto;
+}
+
+.post-title {
+  font-family: "Yu Mincho", "YuMincho", serif;
+  font-size: 2rem;
+  font-weight: normal;
+  /* そのままだと実は太い */
+}
+
+.post-title,
+.post-cat {
+  margin-left: 120px;
+}
+
+article img {
   margin-bottom: 20px;
 }
 
-.signup {
-  background-color: #239b76;
+article p {
+  margin-bottom: 1rem;
 }
 
-.facebook {
-  background-color: #3b5998;
-  margin-right: 10px;
+/* side bar
+------------------------------------ */
+aside {
+  width: 22%;
+  order: 3;
 }
 
-.twitter {
-  background-color: #55acee;
+.sub-title {
+  font-size: 1.375rem;
+  padding: 0 8px 8px;
+  border-bottom: 2px #0bd solid; /* 下線の設定 */
+  font-weight: normal;
+  /* そのままだと実は太い */
 }
 
-.btn {
-  padding: 8px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-  text-align: center;
+aside p {
+  padding: 12px 10px;
 }
 
-.btn:hover {
-  opacity: 1;
+.sub-menu {
+  margin-bottom: 60px;
+  list-style: none;
 }
 
-.fa {
-  margin-right: 5px;
+.sub-menu li {
+  border-bottom: 1px #ddd solid;
 }
-
-header {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34,49,52,0.9);
-  position :fixed;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  width: 124px;
-  margin-top: 20px;
-}
-
-.header-left {
-  float: left;
-}
-
-.header-right {
-  float: right;
-  margin-right: -25px;
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
+.sub-menu a {
+  color: #432;
+  padding: 10px;
   display: block;
-  float: left;
-  transition: all 0.5s;
+  /* ブロック要素にする。リンクをクリックできる部分を広げる */
 }
 
-.header-right a:hover {
-  background-color: rgba(255,255,255,0.3);
+.sub-menu a:hover {
+  color: #0bd;
 }
 
-.lesson-wrapper {
-  height: 580px;
-  padding-bottom: 80px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #f7f7f7;
+.ad {
+  order: 1;
+}
+
+/* MENU
+-------------------------------------------------------------------------------- */
+#menu {
+  background-image: url(images/menu-bg.jpg);
+  min-height: 100vh;
+}
+
+.menu-content {
+  max-width: 560px;
+  margin-top: 10%;
+}
+
+.menu-content .page-title {
   text-align: center;
 }
 
-.heading {
-  padding-top: 80px;
-  padding-bottom: 50px;
-  color: #5f5d60;
+.menu-content p {
+  font-size: 1.125rem;
+  margin: 10px 0 0;
 }
 
-.heading h2 {
-  font-weight: normal;
+.grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* 1列に3つのままだとスマホ画面で２～３枚目の画像が見切れてしまう。
+  そこで、auto-fitで親要素を折り返しながら親要素の余ったスペースを埋める */
+  margin-top: 6%;
+  margin-bottom: 50px;
 }
 
-.lesson {
-  float: left;
-  width: 25%;
+.big-box {
+  grid-column: 1/3; /*始まりのライン/終わりのライン*/
+  grid-row: 1/3;
 }
-
-.lesson-icon {
-  position: relative;
-}
-
-.lesson-icon p {
-  position: absolute;
-  top: 37%;
+.big-box img {
+  height: 94%;
   width: 100%;
-  color: white;
+  object-fit: cover;
+  /* 写真を指定したサイズからはみ出た部分を削除してくれる */
 }
 
-.text-contents {
-  width: 80%;
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 13px;
-  color: #b3aeb5;
+/* CONTACT
+-------------------------------------------- */
+#contact {
+  background-image: url(images/contact-bg.jpg);
+  min-height: 100vh;
 }
-
-.heading h3 {
-  font-weight: normal;
+/* フォーム */
+form div {
+  margin-bottom: 14px;
 }
-
-.message-wrapper {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 80px;
-  text-align: center;
+label {
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+  display: block;
 }
-
-.message {
-  padding: 15px 40px;
-  background-color: #5dca88;
+input[type="text"],
+input[type="email"],
+textarea {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px #fff solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  max-width: 240px;
+}
+textarea {
+  width: 100%;
+  max-width: 480px;
+  height: 6rem;
+}
+input[tyoe="sumbit"] {
+  border: none;
   cursor: pointer;
-  box-shadow: 0px 7px #1a7940;
+  line-height: 1;
 }
 
-.message:active {
-  position: relative;
-  top: 7px;
-  box-shadow: none;
+/* 店舗情報・地図 */
+#location {
+  padding: 4% 0;
+}
+#location .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.location-info {
+  width: 22%;
+}
+.location-info p {
+  padding: 12px 10px;
+}
+.location-map {
+  width: 74%;
 }
 
-footer img {
-  width: 125px;
+/* iframe  マップ、YouTube*/
+iframe {
+  width: 100%;
+}
+/* sns */
+#sns {
+  background: #faf7f0;
+  padding: 4% 0;
+}
+#sns .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+#sns .sub-title {
+  margin-bottom: 30px;
+}
+.sns-box {
+  width: 30%;
+}
+
+/* フッター
+----------------------------------*/
+footer {
+  background: #432;
+  text-align: center;
+  padding: 26px 0;
 }
 
 footer p {
-  color: #b3aeb5;
-  font-size: 12px;
+  color: #fff;
+  font-size: 0.875rem;
 }
-
-footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
-}
-
-.menu-icon {
-  color: white;
-  float: right;
-  font-size: 25px;
-  padding: 21px 0;
-  display: none;
-}
-
-.clear {
-  clear: left;
-}
-
-@media all and (max-width: 1000px) {
-  .lesson {
-    width: 50%;
-    margin-bottom: 50px;
+/* モバイル版
+------------------------------------ */
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2.5rem;
   }
-
-  .lesson-wrapper {
-    height: 990px;
-  }
-
-  footer {
-    text-align: center;
-  }
-}
-
-@media all and (max-width: 750px) {
-  .top-wrapper h1 {
-    font-size: 32px;
-  }
-
-  .heading h2 {
-    font-size: 20px;
-  }
-}
-
-@media all and (max-width: 670px) {
-  .header-right {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .top-wrapper .btn {
-    width: 100%;
-  }
-
-  .twitter {
+  /* header */
+  .main-nav {
+    font-size: 1rem;
     margin-top: 10px;
   }
-
-  .top-wrapper {
-    text-align: left;
+  .main-nav li {
+    margin: 0 20px;
+  }
+  /* home--------------------- */
+  .home-content {
+    margin-top: 20%;
+  }
+  .page-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* NEWS--------------------- */
+  .news-contents {
+    flex-direction: column;
+  }
+  article,
+  aside {
+    width: 100%; /* 横幅いっぱいにコンテンツが広がる */
   }
 
-  .top-wrapper h1 {
-    font-size: 24px;
+  #news .page-title {
+    margin-top: 30px; /*NEWSが下にずれる*/
   }
-
-  .top-wrapper p {
-    font-size: 14px;
+  aside {
+    margin-top: 30px;
   }
-
-  .lesson {
+  .post-info {
+    margin-bottom: 30px;
+  }
+  .post-date {
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
+  }
+  .post-date span {
+    font-size: 0.875rem;
+    padding-top: 2px;
+  }
+  .post-title {
+    font-size: 1.375rem;
+  }
+  .post-cat {
+    font-size: 0.875rem;
+    margin-top: 10px;
+  }
+  .post-title,
+  .post-cat {
+    margin-left: 80px;
+  }
+  /* MENU----------------------- */
+  .menu-content {
+    margin-top: 20%;
+  }
+  .big-box {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .big-box img {
+    height: auto;
+  }
+  /* CONTACT-------------------------- */
+  #contact .page-title {
+    margin-top: 40px;
+  }
+  /* フォーム */
+  input[type="name"],
+  input[type="email"],
+  textarea {
+    max-width: 100%;
+  }
+  /* 店舗情報・地図 */
+  #location .wrapper,
+  #sns .wrapper {
+    flex-direction: column;
+  }
+  .location-info,
+  .location-map,
+  .sns-box {
     width: 100%;
   }
-
-  .lesson-wrapper {
-    height: 1700px;
-  }
-
-  .message-wrapper .btn {
-    width: 100%;
+  .sns-box {
+    margin-bottom: 30px;
   }
 }
