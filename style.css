@@ -92,7 +92,7 @@ header .main-nav a:hover {
 /* HOME
 ------------------------------------------------- */
 #home {
-  background-image: url(images/main-bg.jpg); /*  linear-gradient(#c9ffdf, #ffafbd) フィルター */
+  background-image: url(main-bg.jpg); /*  linear-gradient(#c9ffdf, #ffafbd) フィルター */
   background-blend-mode: luminosity;
   /* background-blend-mode: hard-light; */ /*描画モード*/
   /* background-image: linear-gradient(#c9ffdf, #ffafbd); グラデーション直線 */
@@ -118,7 +118,7 @@ header .main-nav a:hover {
 /* NEWS
 ------------------------------------------------------------- */
 #news {
-  background-image: url(images/news-bg.jpg);
+  background-image: url(news-bg.jpg);
   height: 270px;
   margin-bottom: 40px;
 }
@@ -237,7 +237,7 @@ aside p {
 /* MENU
 -------------------------------------------------------------------------------- */
 #menu {
-  background-image: url(images/menu-bg.jpg);
+  background-image: url(menu-bg.jpg);
   min-height: 100vh;
 }
 
@@ -279,7 +279,7 @@ aside p {
 /* CONTACT
 -------------------------------------------- */
 #contact {
-  background-image: url(images/contact-bg.jpg);
+  background-image: url(contact-bg.jpg);
   min-height: 100vh;
 }
 /* フォーム */
